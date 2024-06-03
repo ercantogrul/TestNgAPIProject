@@ -5,7 +5,7 @@ import io.restassured.http.*;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-public class Homework04 {
+public class Hw04 {
          /*
         Given
             https://reqres.in/api/users/3

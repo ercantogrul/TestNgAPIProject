@@ -27,16 +27,18 @@ public class C10_JsonPathList extends JsonPlaceHolderBaseUrl {
     void jsonPathListTest() {
 
         //Set the url
-        spec.pathParams("first", "todos");
+        spec.pathParams("first", "todos");  // url ye "/todos" u ekliyor
 
         //Set the expected data
 
-        //Send the request and get the response
+  //Send the request and get the response
         Response response = given(spec).get("{first}");
         response.prettyPrint();
+        //  Response response = given(spec).get("/todos");  // bu yukardaki iki kodun yerine kullanabiliriz
+        // response.prettyPrint();
 
 
-        //Do assertion
+   //Do assertion
         assertEquals(response.statusCode(), 200);
 
 //        Print all ids greater than 190 on the console
