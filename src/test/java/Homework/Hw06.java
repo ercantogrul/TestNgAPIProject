@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class Hw06 extends Hw05BaseUrl {
     /*
@@ -69,7 +70,12 @@ public class Hw06 extends Hw05BaseUrl {
                 System.out.println(w);
             }
         }
+//2.yol
+        List<String> uctenBuyukIDler = jsonPath.getList("data.findAll{it.id > 3}.id");
+        System.out.println("uctenBuyukIDler = " + uctenBuyukIDler);
 
+        List<String> IDsi3TenBuyukIsimleri = jsonPath.getList("data.findAll{it.id > 3}.name");
+        System.out.println("IDsi3TenBuyukIsimleri = " + IDsi3TenBuyukIsimleri);
 
         System.out.println("*********Assert that there are 3 ids greater than 3**************");
         //  Assert that there are 3 ids greater than 3
@@ -84,6 +90,7 @@ public class Hw06 extends Hw05BaseUrl {
         softAssert.assertEquals(counter,3);
 
 
+
         System.out.println("********* 4)Print all names whose ids are less than 3 on the console **************");
 //        4)Print all names whose ids are less than 3 on the console
 //                (id'si 3'ten küçük isimleri yazdırınız)
@@ -92,6 +99,10 @@ public class Hw06 extends Hw05BaseUrl {
         for (int i = 0; i < names.size()-(counter+1); i++) {
             System.out.println("names.get("+(i+1)+") = " + names.get(i));
         }
+
+        //2.yol
+        List<String> IDsi3TenKucukIsimleri = jsonPath.getList("data.findAll{it.id < 3}.name");
+        System.out.println("IDsi3TenKucukIsimleri = " + IDsi3TenKucukIsimleri);
 
 
 //        Assert that the number of names whose ids are less than 3 is 2
@@ -107,5 +118,48 @@ public class Hw06 extends Hw05BaseUrl {
 
 
 
+    }
+    @Test
+    void testYol2() {
+        // Set the url
+        spec.pathParams("first", "api", "second", "unknown");
+
+        //User send a GET request to the URL
+        Response response = given(spec).get("{first}/{second}");
+
+
+        // Do Asertion
+        // HTTP Status Code should be 200
+        System.out.println("*********HTTP Status Code should be 200**********");
+        response
+                .then()
+                .statusCode(200);//HTTP Status Code should be 200
+        response.prettyPrint();
+
+        JsonPath jsonPath = response.jsonPath();
+
+        List<String> dataList = jsonPath.getList("data.pantone_value");
+
+        System.out.println("**********Print all pantone_value values***********");
+        for (int i = 0; i < dataList.size(); i++) {
+            System.out.println("pantone_value "+ i+" = " + dataList.get(i));
+        }
+
+        System.out.println("**********Print all ids greater than 3 on the console***********");
+
+        List<String> uctenBuyukIDler = jsonPath.getList("data.findAll{it.id > 3}.id");
+        System.out.println("uctenBuyukIDler = " + uctenBuyukIDler);
+
+        System.out.println("**********3'ten büyük 3 adet id olduğunu doğrulayınız***********");
+        assertEquals(3, uctenBuyukIDler.size());
+
+        System.out.println("**********ID si ücten büyük olanlar***********");
+        List<String> IDsi3TenBuyukler = jsonPath.getList("data.findAll{it.id > 3}.name");
+        System.out.println("IDsi3TenBuyukler = " + IDsi3TenBuyukler);
+
+        System.out.println("**********ID si ücten kucuk 2 kisi old. dogrula***********");
+        List<String> IDsi3TenKucukler = jsonPath.getList("data.findAll{it.id < 3}.name");
+        assertEquals(2, IDsi3TenKucukler.size());
+        System.out.println("IDsi3TenKucukler = " + IDsi3TenKucukler);
     }
 }
