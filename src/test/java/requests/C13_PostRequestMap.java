@@ -48,9 +48,24 @@ public class C13_PostRequestMap extends JsonPlaceHolderBaseUrl {
 
         System.out.println("expectedData = " + expectedData);
 
-        //Send the request and get the response
+//        for (String key : expectedData.keySet()) {
+//            System.out.println("key = " + key);
+//        }
+//        for (Object values : expectedData.values()) {
+//            System.out.println("key = " + values);
+//        }
+//        for(Map.Entry<String,Object> key_val:expectedData.entrySet() ){
+//            System.out.println(key_val.getKey()+" --- "+key_val.getValue());
+//        }
+//        System.out.println("***************");
+
+        //I Send the request and get the response
         Response response = given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
+
+        System.out.println("***********");
+        given(spec).post("{first}").prettyPrint();
+        System.out.println("***********");
 
         //Do assertion
         //1. Yol:

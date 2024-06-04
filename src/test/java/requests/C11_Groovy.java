@@ -66,6 +66,10 @@ public class C11_Groovy extends JsonPlaceHolderBaseUrl {
         List<Integer> idsGreaterThan190 = jsonPath.getList("findAll{it.id>190}.id");  //findAll methoduna List dönen yerden başlanılır. Burada body list döndüğü için en başta başladık.
         System.out.println("idsGreaterThan190 = " + idsGreaterThan190);
 
+        System.out.println("********************************\n");
+        String title195 = jsonPath.getString("findAll{it.id==195}.title");
+        System.out.println("title195 = " + title195);
+
 
 //        Assert that there are 10 ids greater than 190
         assertEquals(counter, 10);

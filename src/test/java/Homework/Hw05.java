@@ -1,6 +1,6 @@
 package Homework;
 
-import base_urls.Hw05BaseUrl;
+import base_urls.RegresBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
-public class Hw05 extends Hw05BaseUrl {
+public class Hw05 extends RegresBaseUrl {
         /*
         Given
           https://reqres.in/api/unknown/3

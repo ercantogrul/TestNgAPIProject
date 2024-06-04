@@ -1,6 +1,6 @@
 package Homework;
 
-import base_urls.Hw05BaseUrl;
+import base_urls.RegresBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -11,7 +11,7 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class Hw06 extends Hw05BaseUrl {
+public class Hw06 extends RegresBaseUrl {
     /*
        Given
               https://reqres.in/api/unknown/
@@ -161,5 +161,52 @@ public class Hw06 extends Hw05BaseUrl {
         List<String> IDsi3TenKucukler = jsonPath.getList("data.findAll{it.id < 3}.name");
         assertEquals(2, IDsi3TenKucukler.size());
         System.out.println("IDsi3TenKucukler = " + IDsi3TenKucukler);
+    }
+
+    @Test
+    void testYol3() {
+        // Set the url
+        spec.pathParams("first", "api", "second", "unknown");
+        Response response = given(spec).get("{first}/{second}");
+        response.prettyPrint();
+        //1)Status code is 200
+        assertEquals(response.statusCode(), 200);
+
+//        2)Print all pantone_values
+//                (Tüm pantone_value değerlerini yazdırınız)
+        JsonPath jsonPath = response.jsonPath();
+        List<String> pantone_valueList = jsonPath.getList("data.pantone_value");
+
+        for (String pantone_value : pantone_valueList) {
+            System.out.println("pantone_value = " + pantone_value);
+        }
+
+//        3)Print all ids greater than 3 on the console
+//                (3'ten büyük id'leri yazdırınız)
+//        Assert that there are 3 ids greater than 3
+//        (3'ten büyük 3 adet id olduğunu doğrulayınız)
+        List<Integer> ids = jsonPath.getList("data.id");
+        System.out.println("ids = " + ids);
+        int count = 0;
+        for (int element : ids) {
+            if (element > 3) {
+                count++;
+                System.out.println(element);
+            }
+        }
+        assertEquals(count, 3);
+//        4)Print all names whose ids are less than 3 on the console
+//                (id'si 3'ten küçük isimleri yazdırınız)
+//        Assert that the number of names whose ids are less than 3 is 2
+//        (id'si 3'ten küçük 2 isim olduğunu doğrulayınız)
+        count = 0;
+        List<String> names = jsonPath.getList("data.name");
+        for (int i = 0; i < ids.size() ; i++) {
+            if (ids.get(i) < 3) {
+                count++;
+                System.out.println("uctenKucuk = " + names.get(i));
+            }
+        }
+        assertEquals(count, 2);
     }
 }

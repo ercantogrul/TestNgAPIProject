@@ -46,6 +46,9 @@ public class C15_PutRequest extends JsonPlaceHolderBaseUrl {
         Response response = given(spec).body(expectedData).put("{first}/{second}");
         response.prettyPrint();
 
+//        System.out.println("**************");
+//        given(spec).body(expectedData).get("{first}/{second}").prettyPrint();
+
         //Do assertion
         Map<String, Object> actualData = response.as(Map.class);
         System.out.println("actualData = " + actualData);
