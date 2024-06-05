@@ -1,6 +1,7 @@
 package base_urls;
 
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeTest;
 
@@ -12,6 +13,7 @@ public class BookerBaseUrl {
     public void setSpec() {
         spec = new RequestSpecBuilder()
                 .setBaseUri("https://restful-booker.herokuapp.com")
+                .setContentType(ContentType.JSON)  // bu kod Map olan paylaod'un çevrileceği içerik tipi icin eklendi
                 .build();
     }
 }

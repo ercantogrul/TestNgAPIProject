@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class Hw08 extends PetstoreBaseUrl {
@@ -16,8 +17,29 @@ public class Hw08 extends PetstoreBaseUrl {
 Write an automation test that will create a 'user' using the "https://petstore.swagger.io/" document
 */
     @Test
+    void HW08Test(){
+        // Set the Url
+        //https://petstore.swagger.io/v2/user
+        spec.pathParams("first","v2","second","user");
+
+        //Create expected Data
+        Map<String, Object> expectedData = PetstoreTestData.expectedDataMap(0,"Ali_Veli","Ali",
+                "Veli","ali_veli@gmail.com","1234567","171232323",0);
+
+        //Send the Data and get hte Response
+
+        Response response = given(spec).body(expectedData).post("{first}/{second}");
+        response.prettyPrint();
+        Map<String,Object> actualData = response.as(Map.class);
+        System.out.println("actualData = " + actualData);
+
+        //Do the assertion
+        assertEquals(response.statusCode(),200);
+    }
+    @Test
     void homwork08Test() {
         //Set the url"https://petstore.swagger.io/v2/user/createWithList"
+        //https://petstore.swagger.io/v2/user
         spec.pathParams("first", "v2","second","user","third","createWithList");
 
         //Set the expected data
@@ -52,6 +74,7 @@ Write an automation test that will create a 'user' using the "https://petstore.s
     @Test
     void homwork08Test2() {
         //Set the url"https://petstore.swagger.io/v2/user/createWithList"
+
         spec.pathParams("first", "v2","second","user","third","createWithList");
 
         //Set the expected data
@@ -69,7 +92,6 @@ Write an automation test that will create a 'user' using the "https://petstore.s
                   }
                 ]""";
 
-
         System.out.println("**********//Set the expected data************");
 
         //Send the request and get the response
@@ -79,13 +101,13 @@ Write an automation test that will create a 'user' using the "https://petstore.s
                 .post("{first}/{second}/{third}");
         response.prettyPrint();
 
-
         //Do assertion
-
-
-
-
+        response
+                .then()
+                .statusCode(200);
 
     }
 
 }
+
+
