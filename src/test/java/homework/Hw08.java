@@ -1,15 +1,13 @@
-package Homework;
+package homework;
 
 import base_urls.PetstoreBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import test_data.PetstoreTestData;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class Hw08 extends PetstoreBaseUrl {

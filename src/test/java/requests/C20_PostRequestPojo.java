@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class C20_PostRequestPojo  extends JsonPlaceHolderBaseUrl {
@@ -48,10 +49,16 @@ public class C20_PostRequestPojo  extends JsonPlaceHolderBaseUrl {
         JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class);
         System.out.println("actualData = " + actualData);
 
+        //1.yoll
+        response.then().body("title",equalTo(expectedData.getTitle()));
+
+        //2.yoll
         assertEquals(response.statusCode(), 201);
         assertEquals(actualData.getUserId(), expectedData.getUserId());
         assertEquals(actualData.getTitle(), expectedData.getTitle());
         assertEquals(actualData.getCompleted(), expectedData.getCompleted());
+
+
 
 
     }

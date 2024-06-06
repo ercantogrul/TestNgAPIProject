@@ -1,4 +1,4 @@
-package Homework;
+package homework;
 
 import base_urls.RegresBaseUrl;
 import io.restassured.response.Response;

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
 public class C17_PostRequestMastedMap extends BookerBaseUrl {
@@ -72,10 +73,14 @@ public class C17_PostRequestMastedMap extends BookerBaseUrl {
         response.prettyPrint();
 
         //Do assertion
-        Map<String, Object> actualData = response.as(Map.class);
+        Map<String, Object> actualData = response.as(Map.class);  // veriler bir Object conteinera eklenerek verildi
         System.out.println("actualData = " + actualData);
-        // veriler bir Object conteinera eklenerek verildi
 
+        //1.yoll
+        response.then().statusCode(200).body("booking.firstname",equalTo(expectedData.get("firstname")));  // Bu yöntem daha kolay
+        response.then().body("booking.bookingdates.checkin",equalTo(bookingdates.get("checkin")));
+
+        //2.yoll
         assertEquals(response.statusCode(), 200);
         // Tüm key'ler String, Value'lar Object container'i icerisinde bulundugundan dönen value'lari kendi methodlari ile kullanmak icin type casting yapilir
         assertEquals(((Map) actualData.get("booking")).get("firstname"), expectedData.get("firstname"));
