@@ -1,7 +1,6 @@
 package requests;
 
 import base_urls.BookerBaseUrl;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -12,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
-public class C17_PostRequestMastedMap extends BookerBaseUrl {
+public class C17_PostRequestNestedMap extends BookerBaseUrl {
 /*
     Given
         1) https://restful-booker.herokuapp.com/booking

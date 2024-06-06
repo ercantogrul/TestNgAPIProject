@@ -5,14 +5,13 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import test_data.BookerTestData;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertEquals;
 
-public class C18_PostRequestMastedMapTestData extends BookerBaseUrl {
+public class C18_PostRequestNestedMapTestData extends BookerBaseUrl {
 /*
     Given
         1) https://restful-booker.herokuapp.com/booking
