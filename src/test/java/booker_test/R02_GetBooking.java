@@ -15,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 public class R02_GetBooking extends BookerBaseUrl {
     /*
     Given
-        https://restful-booker.herokuapp.com/booking:id
+        https://restful-booker.herokuapp.com/booking/:id
     When
         User sends get request
     Then

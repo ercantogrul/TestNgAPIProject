@@ -23,14 +23,15 @@ public class Authentication {
 
       //  response.prettyPrint();
 
-        System.out.println("response.jsonPath().getString(\"token\") = " + response.jsonPath().getString("token"));
+      //  System.out.println("response.jsonPath().getString(\"token\") = " + response.jsonPath().getString("token"));
 
-        return response.jsonPath().getString("token");
+        return response.jsonPath().getString("token");  // Json data icerisinde dönen token in key adi token, deger token in kendisi
+        // response den token i alip return ediyoruz ---response.jsonPath().getString("token") = 1002bcdb2c7a352---
     }
 
 
-    public static void main(String[] args) {
-        generateToken();
+    public static void main(String[] args) {  // main methodu yukardaki token alan methodu denemek icin olusturduk
+      //  generateToken();
     }
 
 }

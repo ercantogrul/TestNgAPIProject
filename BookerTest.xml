@@ -6,8 +6,9 @@
             <class name="booker_test.R01_CreateBooking"></class>
             <class name="booker_test.R02_GetBooking"></class>
             <class name="booker_test.R03_UpdateBooking"></class>
-            <class name="homework.Hw12_PartialUpdateBooking"></class>
-            <class name="homework.Hw12_DeleteBooking"></class>
+            <class name="booker_test.R04_PartialUpdateBooking"></class>
+            <class name="booker_test.R05_DeleteBooking"></class>
+            <class name="booker_test.R06_NegativeGetBooking"></class>
 
         </classes>
     </test>

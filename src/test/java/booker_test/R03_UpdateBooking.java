@@ -14,7 +14,7 @@ public class R03_UpdateBooking extends BookerBaseUrl {
 /*
 //***************UpdateBooking icin "token" isteniyor**************
     Given
-        1) https://restful-booker.herokuapp.com/booking:id
+        1) https://restful-booker.herokuapp.com/booking/:id
         2) {
                 "firstname" : "James",
                 "lastname" : "Brown",
@@ -43,7 +43,7 @@ public class R03_UpdateBooking extends BookerBaseUrl {
                                         }
  */
 
-
+ public static BookingPojo expectedUpData;  // diger classlarda kullanmak icin olusturduk
     @Test
     void nestedPojoTest() {
         //Set the url
@@ -65,6 +65,7 @@ public class R03_UpdateBooking extends BookerBaseUrl {
 
         BookingPojo expectedData = ObjectMapperUtils.jsonToJava(strJson, BookingPojo.class);
         System.out.println("expectedData = " + expectedData);
+
 
         // ilk class ta olusturulan expectedData üzerinden setter methodlari ile degisiklik yaparak güncellenecek body olusturulabilir.
 //        expectedData.setFirstname("James");
@@ -98,6 +99,9 @@ public class R03_UpdateBooking extends BookerBaseUrl {
         assertEquals(actualData.getBookingdates().getCheckout(), expectedData.getBookingdates().getCheckout());
 
         assertEquals(actualData.getAdditionalneeds(), expectedData.getAdditionalneeds());
+
+
+        expectedUpData = expectedData;
 
     }
 
