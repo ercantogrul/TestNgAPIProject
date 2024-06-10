@@ -21,7 +21,7 @@ public class Authentication {
                 .contentType(ContentType.JSON)
                 .post("https://restful-booker.herokuapp.com/auth");
 
-        response.prettyPrint();
+      //  response.prettyPrint();
 
         System.out.println("response.jsonPath().getString(\"token\") = " + response.jsonPath().getString("token"));
 

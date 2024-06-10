@@ -19,6 +19,7 @@ public class BookerBaseUrl {
                 .setContentType(ContentType.JSON)
                 .setBaseUri("https://restful-booker.herokuapp.com")
                 .build();
+
     }
 
 

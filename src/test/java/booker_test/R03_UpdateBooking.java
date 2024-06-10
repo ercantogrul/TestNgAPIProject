@@ -4,7 +4,6 @@ import base_urls.BookerBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.BookingPojo;
-import pojos.BookingResponsePojo;
 import utilities.ObjectMapperUtils;
 
 import static booker_test.R01_CreateBooking.bookingId;
@@ -67,14 +66,24 @@ public class R03_UpdateBooking extends BookerBaseUrl {
         BookingPojo expectedData = ObjectMapperUtils.jsonToJava(strJson, BookingPojo.class);
         System.out.println("expectedData = " + expectedData);
 
+        // ilk class ta olusturulan expectedData üzerinden setter methodlari ile degisiklik yaparak güncellenecek body olusturulabilir.
+//        expectedData.setFirstname("James");
+//        expectedData.setLastname("Brown");
+//        expectedData.setTotalprice(111);
+//        expectedData.setDepositpaid(true);
+//        expectedData.getBookingdates().setCheckin("2018-01-01");
+//        expectedData.getBookingdates().setCheckout("2019-01-01");
+//        expectedData.setAdditionalneeds("Breakfast");
+//        System.out.println("expectedData = " + expectedData);
+//______________________________________________________________________________________
         //Send the request and get the response
         Response response = given(spec)
-                //.header("Cookie","token=730eb0ae5b733bc") --spec'te belirtilecek
+                //.header("Cookie","token=730eb0ae5b733bc") //--spec'te belirtilecek (yani baseUrl de tanimlanacak)
                 .body(expectedData)
                 .put("{first}/{second}");
 
         response.prettyPrint();
-
+//_______________________________________________________________________________________
         //Do assertion
         BookingPojo actualData = response.as(BookingPojo.class);
         System.out.println("actualData = " + actualData);

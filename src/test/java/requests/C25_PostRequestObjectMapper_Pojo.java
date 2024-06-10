@@ -3,6 +3,7 @@ package requests;
 import base_urls.JsonPlaceHolderBaseUrl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.JsonPlaceHolderPojo;
@@ -54,11 +55,16 @@ public class C25_PostRequestObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
                          "title": "Tidy your room",
                          "completed": false
                        }""";
-
+ // 1.yoll
         //readValue() methodunda ilk parametrede cevrilmek istenen json datanin String hali, 2. parametrede ise json'in cerilecegi class belirtilmelidir
         //JsonPlaceHolderPojo default Constructor ile expectedData olusturuyor. yani herhangi bir constructor a ihtiyac duymuyor
         JsonPlaceHolderPojo expectedData = objectMapper.readValue(strjson, JsonPlaceHolderPojo.class);
         System.out.println("expectedData = " + expectedData);
+
+    //2.yol
+        Gson gson = new Gson();
+        JsonPlaceHolderPojo expectedData2 = gson.fromJson(strjson,JsonPlaceHolderPojo.class);
+        System.out.println("expectedData2 = " + expectedData2);
 
 
         //Send the request and get the response
