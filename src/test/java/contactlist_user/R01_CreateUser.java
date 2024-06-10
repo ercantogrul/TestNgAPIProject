@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.contactListPojo.UserPojo;
-import pojos.contactListPojo.UserResposePojo;
+import pojos.contactListPojo.UserResponsePojo;
 import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
@@ -30,21 +30,23 @@ public class R01_CreateUser extends ContactListBaseUrl {
         {
           "user": {
             "_id": "608b2db1add2691791c04c89",
-            "firstName": "Test",
-            "lastName": "User",
+            "firstName": "John",
+            "lastName": "Doe",
             "email": "test@fake.com",
             "__v": 1
           },
           "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDhiMmRiMWFkZDI2OTE3OTFjMDRjODgiLCJpYXQiOjE2MTk3MzM5Mzd9.06wN8dRBLkFiS_m2XdY6h4oLx3nMeupHvv-3C2AEKlY"
         }
      */
+    public static String token;
+    public static UserPojo expectedDataUpdate;
 
     @Test
     void createUserTest(){
 
         //Set the url
         spec.pathParams("first","users");
-
+//______________________________________________________________________________________
         //Set the expected data
         String json = """
                 {
@@ -57,17 +59,21 @@ public class R01_CreateUser extends ContactListBaseUrl {
         UserPojo expectedData = ObjectMapperUtils.jsonToJava(json, UserPojo.class);
         expectedData.setEmail(Faker.instance().internet().emailAddress());
         System.out.println("expectedData = " + expectedData);
-
+//______________________________________________________________________________________
         //Send the request and get the response
         Response response = given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
-
+//______________________________________________________________________________________
         //Do assertion
-        UserResposePojo actualData = response.as(UserResposePojo.class);
+        UserResponsePojo actualData = response.as(UserResponsePojo.class);
         assertEquals(response.statusCode(), 201);
         assertEquals(actualData.getUser().getFirstName(), expectedData.getFirstName());
         assertEquals(actualData.getUser().getLastName(), expectedData.getLastName());
         assertEquals(actualData.getUser().getEmail(), expectedData.getEmail());
+
+        token=actualData.getToken();
+        expectedDataUpdate=expectedData;
+
 
     }
 }

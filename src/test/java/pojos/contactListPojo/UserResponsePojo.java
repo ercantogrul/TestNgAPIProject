@@ -1,6 +1,6 @@
 package pojos.contactListPojo;
 
-public class UserResposePojo{
+public class UserResponsePojo {
 	private User user;
 	private String token;
 

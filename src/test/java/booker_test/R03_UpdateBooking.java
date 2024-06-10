@@ -84,7 +84,7 @@ public class R03_UpdateBooking extends BookerBaseUrl {
                 .put("{first}/{second}");
 
         response.prettyPrint();
-//_______________________________________________________________________________________
+
         //Do assertion
         BookingPojo actualData = response.as(BookingPojo.class);
         System.out.println("actualData = " + actualData);

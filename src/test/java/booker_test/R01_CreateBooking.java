@@ -73,7 +73,7 @@ public class R01_CreateBooking extends BookerBaseUrl {
         //Send the request and get the response
         Response response = given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
-//______________________________________________________________________________________
+
         //Do assertion
         BookingResponsePojo actualData = response.as(BookingResponsePojo.class);
         System.out.println("actualData = " + actualData);
