@@ -1,7 +1,8 @@
-package contactlist_user;
+package contactlist_user2;
 
 import base_urls.ContactListBaseUrl;
 
+import base_urls.ContactListBaseUrl2;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -9,34 +10,34 @@ import org.testng.annotations.Test;
 import pojos.contactListPojo.User;
 import pojos.contactListPojo.UserPojo;
 import utilities.ObjectMapperUtils;
-
-import static contactlist_user.R01_CreateUser.expectedData;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class R03_Update extends ContactListBaseUrl {
+public class R03_Update extends ContactListBaseUrl2 {
     public static String email;
     public static String password;
     public static User actual_expectedData;
 
      /*
     Given
-      1-  https://thinking-tester-contact-list.herokuapp.com/users/me
-      2- {
-                    "firstName": "Ali",
-                    "lastName": "Veli",
-                    "email": "abc@gmail.com",
-                    "password": "1234567"
-                }
+        https://thinking-tester-contact-list.herokuapp.com/users/me
+        'Authorization: Bearer {{token}}'
     When
         User sends patch request
+                        '{
+                            "firstName": "Updated",
+                            "lastName": "Username",
+                            "email": "test2@fake.com",
+                            "password": "myNewPassword"
+                        }'
     Then
         Status code should be 200
     And
-      Response body shoul be like:{
+      Response body shoul be like:
+                                    {
                                       "_id": "608b2db1add2691791c04c89",
-                                      "firstName": "Ali",
-                                      "lastName": "Veli",
+                                      "firstName": "Updated",
+                                      "lastName": "Username",
                                       "email": "test2@fake.com",
                                       "__v": 1
                                     }
@@ -58,10 +59,7 @@ public class R03_Update extends ContactListBaseUrl {
                     "password": "1234567"
                 }""";
 
-
-        expectedData = ObjectMapperUtils.jsonToJava(strJson, UserPojo.class);
-        // R01_CreateUser.expectedData yi kullanarak token üretmistik
-        // Burada update ettigimiz email ve password bilgilerini yine R01_CreateUser.expectedData assaine yapiyoruz ki token i yeni güncel email ve passwort ile aliyoruz.
+        UserPojo expectedData = ObjectMapperUtils.jsonToJava(strJson, UserPojo.class);
         expectedData.setEmail(Faker.instance().internet().emailAddress());
         System.out.println("expectedData = " + expectedData);
 //______________________________________________________________________________________

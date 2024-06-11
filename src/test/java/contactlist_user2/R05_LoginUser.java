@@ -1,17 +1,18 @@
-package contactlist_user;
+package contactlist_user2;
 
-import base_urls.ContactListBaseUrl;
+import base_urls.ContactListBaseUrl2;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.contactListPojo.UserResponsePojo;
 import utilities.ObjectMapperUtils;
 
 import java.util.Map;
-import static contactlist_user.R03_Update.*;
+import static contactlist_user2.R03_Update.*;
+import static contactlist_user2.R01_CreateUser.token;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class R05_LoginUser extends ContactListBaseUrl {
+public class R05_LoginUser extends ContactListBaseUrl2 {
 
     @Test
     void loginUserTest() {
@@ -41,18 +42,20 @@ public class R05_LoginUser extends ContactListBaseUrl {
 //______________________________________________________________________________________
 
         //Set the expected data
-        String strJson ="{\n" +
-                "    \"email\": \""+email+"\",\n" +
-                "    \"password\": \""+password+"\"\n" +
-                "}";
-
-//
 //        String strJson = "{\n" +
 //                "    \"email\": \"" + email + "\",\n" +
 //                "    \"password\": \"" + password + "\"" +
 //                "}";
+
+        String strJson = "{\n" +
+                "    \"email\": \"" + email + "\",\n" +
+                "    \"password\": \"" + password + "\"" +
+                "}";
+
         Map expectedData = ObjectMapperUtils.jsonToJava(strJson,Map.class);
         System.out.println("expectedData = " + expectedData);
+
+
 
 //______________________________________________________________________________________
         //Send the request and get the response
@@ -68,6 +71,7 @@ public class R05_LoginUser extends ContactListBaseUrl {
         assertEquals(actualData.getUser().getLastName(), actual_expectedData.getLastName());
         assertEquals(actualData.getUser().getEmail(), actual_expectedData.getEmail());
 
+        token=actualData.getToken();
 
 
 

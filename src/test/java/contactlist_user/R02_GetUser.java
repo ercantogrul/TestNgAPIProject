@@ -3,43 +3,40 @@ package contactlist_user;
 import base_urls.ContactListBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-
 import pojos.contactListPojo.User;
-import static contactlist_user.R01_CreateUser.expectedDataUpdate;
+
+import static contactlist_user.R01_CreateUser.createdUser;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
 public class R02_GetUser extends ContactListBaseUrl {
-      /*
+    /*
     Given
         https://thinking-tester-contact-list.herokuapp.com/users/me
     When
         User sends get request
     Then
-        Status code should be 200
+        Stays code should be 200
     And
-        Response body should be:
-   {
-    "user": {
-        "_id": "6666f00d9ec6d9001383a5a5",
-        "firstName": "John",
-        "lastName": "Doe",
-        "email": "mariella.funk@yahoo.com",
-        "__v": 1
-    },
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY2ZjAwZDllYzZkOTAwMTM4M2E1YTUiLCJpYXQiOjE3MTgwMjIxNTd9.D7X2wZ0UPfHRf6RzHqx0dR0t4BXRqsqlKGpI2qpjFEA"
-}
+        Body should be like:
+        {
+          "_id": "6667fab40842020013c0b460",
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "dave.gottlieb@hotmail.com",
+          "__v": 1
+        }
      */
 
     @Test
-    void getUserTest() {
+    void getUserTest(){
+
         //Set the url
-        spec.pathParams("first", "users", "second", "me");
+        spec.pathParams("first","users","second","me");
 //______________________________________________________________________________________
-
-        //Set the expected data
-
-        System.out.println("expectedContactData = " + expectedDataUpdate);
+        //Set the expected data --> Bir önceki class'ta oluşturukuan User objesi burada kullanılabilir.
+        User expectedData = createdUser;
+        System.out.println("expectedData = " + expectedData);
 //______________________________________________________________________________________
         //Send the request and get the response
         Response response = given(spec).get("{first}/{second}");
@@ -50,15 +47,10 @@ public class R02_GetUser extends ContactListBaseUrl {
         System.out.println("actualData = " + actualData);
 
         assertEquals(response.statusCode(), 200);
-        assertEquals(actualData.getFirstName(), expectedDataUpdate.getFirstName());
-        assertEquals(actualData.getLastName(), expectedDataUpdate.getLastName());
-        assertEquals(actualData.getEmail(), expectedDataUpdate.getEmail());
-
-
+        assertEquals(actualData.getFirstName(), expectedData.getFirstName());
+        assertEquals(actualData.getLastName(), expectedData.getLastName());
+        assertEquals(actualData.getEmail(), expectedData.getEmail());
 
     }
-
-
-
 
 }

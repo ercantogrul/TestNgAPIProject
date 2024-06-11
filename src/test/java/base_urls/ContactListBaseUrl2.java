@@ -5,11 +5,11 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
 
+import static contactlist_user2.R01_CreateUser.token;
 
-import static utilities.Authentication.contactListToken;
 
 
-public class ContactListBaseUrl {
+public class ContactListBaseUrl2 {
 
     protected RequestSpecification spec;
 
@@ -18,7 +18,7 @@ public class ContactListBaseUrl {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .addHeader("Authorization","Bearer " + contactListToken())
+                .addHeader("Authorization","Bearer " + token)
                 .setBaseUri("https://thinking-tester-contact-list.herokuapp.com")
                 .build();
     }
