@@ -3,7 +3,7 @@ import base_urls.ContactListBaseUrl2;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-import pojos.contactListPojo.User;
+import pojos.contactList_UsersPojo.User;
 
 import static contactlist_user2.R01_CreateUser.expectedDataUpdate;
 import static io.restassured.RestAssured.given;

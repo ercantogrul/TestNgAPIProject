@@ -1,10 +1,9 @@
-package pojos.contactListPojo;
+package pojos.contactList_UsersPojo;
 
-public class User{
+public class UserPojo{
 	private String firstName;
 	private String lastName;
-	private Integer __v;
-	private String _id;
+	private String password;
 	private String email;
 
 	public void setFirstName(String firstName){
@@ -23,20 +22,12 @@ public class User{
 		return lastName;
 	}
 
-	public void set__v(Integer V){
-		this.__v = V;
+	public void setPassword(String password){
+		this.password = password;
 	}
 
-	public Integer get__v(){
-		return __v;
-	}
-
-	public void set_id(String _id){
-		this._id = _id;
-	}
-
-	public String get_id(){
-		return _id;
+	public String getPassword(){
+		return password;
 	}
 
 	public void setEmail(String email){
@@ -50,11 +41,10 @@ public class User{
 	@Override
 	public String toString(){
 		return
-				"User{" +
+				"UserPojo{" +
 						"firstName = '" + firstName + '\'' +
 						",lastName = '" + lastName + '\'' +
-						",__v = '" + __v + '\'' +
-						",_id = '" + _id + '\'' +
+						",password = '" + password + '\'' +
 						",email = '" + email + '\'' +
 						"}";
 	}

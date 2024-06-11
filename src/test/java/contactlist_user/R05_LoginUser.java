@@ -3,7 +3,7 @@ package contactlist_user;
 import base_urls.ContactListBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import pojos.contactListPojo.UserResponsePojo;
+import pojos.contactList_UsersPojo.UserResponsePojo;
 import utilities.ObjectMapperUtils;
 
 import java.util.Map;

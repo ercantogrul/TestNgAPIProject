@@ -1,4 +1,4 @@
-package pojos.contactListPojo;
+package pojos.contactList_UsersPojo;
 
 public class UserResponsePojo {
 	private User user;

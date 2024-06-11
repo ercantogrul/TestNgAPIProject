@@ -1,12 +1,11 @@
 package contactlist_user2;
 
-import base_urls.ContactListBaseUrl;
 import base_urls.ContactListBaseUrl2;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import pojos.contactListPojo.UserPojo;
-import pojos.contactListPojo.UserResponsePojo;
+import pojos.contactList_UsersPojo.UserPojo;
+import pojos.contactList_UsersPojo.UserResponsePojo;
 import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
