@@ -65,8 +65,8 @@ public class Authentication {
 
         } else {
             Map<String, String> payload = new HashMap<>();
-            payload.put("email", "jasonsteel@gmail.com");
-            payload.put("password", "Jason.123");
+            payload.put("email", "clarusway_91@hotmail.com");
+            payload.put("password", "Clarusway.1234");
 
             Response response = given()
                     .contentType(ContentType.JSON)

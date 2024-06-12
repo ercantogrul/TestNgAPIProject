@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 
 import static utilities.Authentication.contactListToken;
+import static utilities.Authentication.contactListToken2;
 
 
 public class ContactListBaseUrl {
@@ -18,7 +19,7 @@ public class ContactListBaseUrl {
 
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
-                .addHeader("Authorization","Bearer " + contactListToken())
+                .addHeader("Authorization","Bearer " + contactListToken2())
                 .setBaseUri("https://thinking-tester-contact-list.herokuapp.com")
                 .build();
     }
