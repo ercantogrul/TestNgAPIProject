@@ -13,7 +13,7 @@ import static contactList_contacts.R01_CreateContact.createdContacts_actualData;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class R02_GetContects extends ContactListBaseUrl {
+public class R02_GetContectsList extends ContactListBaseUrl {
 /*
     Given
         https://thinking-tester-contact-list.herokuapp.com/contacts

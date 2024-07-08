@@ -5,7 +5,8 @@
           name="ContactList_Test">
         <classes>
             <class name="contactList_contacts.R01_CreateContact"></class>
-            <class name="contactList_contacts.R02_GetContects"></class>
+            <class name="contactList_contacts.R02_GetContectsList"></class>
+
 
         </classes>
     </test>

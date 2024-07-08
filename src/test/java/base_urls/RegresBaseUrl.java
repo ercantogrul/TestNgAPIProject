@@ -15,5 +15,6 @@ public class RegresBaseUrl {
                 .setContentType(ContentType.JSON)  // bu kod Map olan paylaod'un çevrileceği içerik tipi icin eklendi
                 .setBaseUri("https://reqres.in")
                 .build();
+
     }
 }
