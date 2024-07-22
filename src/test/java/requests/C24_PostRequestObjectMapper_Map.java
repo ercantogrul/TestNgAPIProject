@@ -48,6 +48,7 @@ public class C24_PostRequestObjectMapper_Map extends JsonPlaceHolderBaseUrl {
         //2. adim: readValue() Methodu ile ceviri yap: önce json datayi string bir containera al
 
 
+
         String strjson = """
                        {
                          "userId": 55,

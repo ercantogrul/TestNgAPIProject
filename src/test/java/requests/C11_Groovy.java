@@ -33,7 +33,6 @@ public class C11_Groovy extends JsonPlaceHolderBaseUrl {
 
     @Test
     void groovyTest(){
-
         //Set the url
         spec.pathParams("first", "todos");
 

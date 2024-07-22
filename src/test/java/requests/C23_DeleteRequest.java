@@ -30,6 +30,7 @@ public class C23_DeleteRequest extends JsonPlaceHolderBaseUrl {
         //Set the expected data
 
 
+
         //Send the request and get the response
         Response response = given(spec).delete("{first}/{second}");
         response.prettyPrint();

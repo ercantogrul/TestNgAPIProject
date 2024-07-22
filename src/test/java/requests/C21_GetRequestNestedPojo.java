@@ -35,6 +35,7 @@ public class C21_GetRequestNestedPojo extends BookerBaseUrl {
 
     @Test
     void getRequestNestedPojoTest(){
+
         //Set the url
         spec.pathParams("first", "booking","second","42");
 

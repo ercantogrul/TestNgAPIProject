@@ -25,6 +25,7 @@ public class C07_RequestSpecification extends BookerBaseUrl {
         Response response = given(spec).get("{first}");
         response.prettyPrint();
 
+
 //        4. Do assertion
         response
                 .then()

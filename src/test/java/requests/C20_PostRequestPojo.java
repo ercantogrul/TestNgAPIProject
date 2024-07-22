@@ -34,6 +34,7 @@ public class C20_PostRequestPojo  extends JsonPlaceHolderBaseUrl {
 
     @Test
     void postRequestPojoTest(){
+
         //Set the url
         spec.pathParams("first", "todos");
 

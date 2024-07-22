@@ -55,6 +55,7 @@ public class C04_AssertBody {
                 .body("completed", equalTo(false))//“completed” is false
                 .body("userId", equalTo(2))//“userId” is 2
         // coklu bady icerisinde coklu assert yapilirsa bu Hard assetion seklinde calisir. ilk Fail durumunda Test durur.
+
         ;
 
         //2. Yol: // bu yöntem ile soft assertion yapar

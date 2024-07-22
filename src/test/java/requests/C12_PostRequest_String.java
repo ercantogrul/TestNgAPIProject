@@ -34,7 +34,6 @@ public class C12_PostRequest_String extends JsonPlaceHolderBaseUrl {
 
     @Test
     void postRequestTest() {
-
         //Set the url
         spec.pathParams("first", "todos");
 

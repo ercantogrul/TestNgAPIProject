@@ -71,6 +71,7 @@ public class C08_JsonPath_HardAssertion extends BookerBaseUrl {
         String checkout = jsonPath.getString("bookingdates.checkout");
         String additionalneeds = jsonPath.getString("additionalneeds");
 
+
         assertEquals(firstname, "Josh");
         assertEquals(lastname, "Allen");
         assertEquals(totalprice, 111);

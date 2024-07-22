@@ -32,6 +32,7 @@ public class C16_PatchRequest extends JsonPlaceHolderBaseUrl {
    */
     @Test
     void patchRequestTest() {
+
         //Set the url
         spec.pathParams("first", "todos", "second", "198");
 

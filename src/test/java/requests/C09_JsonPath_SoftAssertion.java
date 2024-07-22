@@ -89,7 +89,6 @@ public class C09_JsonPath_SoftAssertion extends BookerBaseUrl {
         softAssert.assertAll();
 
 
-
     }
 
 }

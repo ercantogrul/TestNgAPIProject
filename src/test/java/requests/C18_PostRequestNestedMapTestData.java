@@ -49,6 +49,7 @@ public class C18_PostRequestNestedMapTestData extends BookerBaseUrl {
     @Test
     void nestedMapTest() {
 
+
         //Set the url
         spec.pathParams("first", "booking");
 

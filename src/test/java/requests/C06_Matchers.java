@@ -28,7 +28,6 @@ public class C06_Matchers {
     @Test
     void matchersTest(){
 
-
 //    API testinde izlenecek adımlar:
 //    1. Set the url
         String url = "https://jsonplaceholder.typicode.com/todos";

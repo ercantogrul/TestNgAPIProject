@@ -39,6 +39,7 @@ public class C02_AssertHeader {
                 .statusLine("HTTP/1.1 200 OK")  // Status Line should be HTTP/1.1 200
                 .header("server", equalTo("Cowboy")) //Server should be "Cowboy"
                 .header("Connection", equalTo("keep-alive")); // Connection should be "keep-alive"
+
         ;
 
 

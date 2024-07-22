@@ -43,8 +43,6 @@ public class C14_PostRequestMapTestData extends JsonPlaceHolderBaseUrl {
 
         //Set the expected data --> Payload
 
-
-
         Map<String, Object> expectedData = JsonPlaceHolderTestData.expectedDataMap(55,"Tidy your room",false);
 
         System.out.println("expectedData = " + expectedData);

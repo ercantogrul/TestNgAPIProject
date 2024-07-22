@@ -37,7 +37,6 @@ public class C10_JsonPathList extends JsonPlaceHolderBaseUrl {
         //  Response response = given(spec).get("/todos");  // bu yukardaki iki kodun yerine kullanabiliriz
         // response.prettyPrint();
 
-
    //Do assertion
         assertEquals(response.statusCode(), 200);
 

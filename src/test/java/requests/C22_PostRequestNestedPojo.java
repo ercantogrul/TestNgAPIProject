@@ -47,6 +47,7 @@ public class C22_PostRequestNestedPojo extends BookerBaseUrl {
 
     @Test
     void nestedPojoTest() {
+
         //Set the url
         spec.pathParams("first", "booking");
 
