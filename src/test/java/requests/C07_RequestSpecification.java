@@ -32,6 +32,7 @@ public class C07_RequestSpecification extends BookerBaseUrl {
                 .statusCode(200)
                 .body("bookingid", hasSize(greaterThan(0)));
 
+
     }
 
 }

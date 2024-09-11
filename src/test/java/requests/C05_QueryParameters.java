@@ -46,5 +46,6 @@ public class C05_QueryParameters {
         System.out.println("date = " + date);
         given().get(url1).then().header("Connection",equalTo("keep-alive"));
 
+
     }
 }
