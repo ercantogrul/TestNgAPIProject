@@ -17,4 +17,5 @@ public class RegresBaseUrl {
                 .build();
 
     }
+
 }

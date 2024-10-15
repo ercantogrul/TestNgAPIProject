@@ -36,6 +36,7 @@ public class C28_PojoList extends JsonPlaceHolderBaseUrl {
             }
 */
 
+
     @Test
     void pojoListTest() throws JsonProcessingException {
 

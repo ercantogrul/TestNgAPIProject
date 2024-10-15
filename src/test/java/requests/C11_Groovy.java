@@ -31,6 +31,7 @@ public class C11_Groovy extends JsonPlaceHolderBaseUrl {
     //Groovy: Java tabanlı bir proglamlama dili.
 
 
+
     @Test
     void groovyTest(){
         //Set the url

@@ -51,6 +51,7 @@ public class C27_PostRequestObjectMapperUtils extends BookerBaseUrl {
         //Set the url
         spec.pathParams("first", "booking");
 
+
         //Set the expected data
         String strJson = """
                 {

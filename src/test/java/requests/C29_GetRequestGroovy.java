@@ -38,6 +38,7 @@ public class C29_GetRequestGroovy extends GoRestBaseUrl {
         Response response = given(spec).get("{first}");
         response.prettyPrint();
 
+
         //Do assertion
 
         response

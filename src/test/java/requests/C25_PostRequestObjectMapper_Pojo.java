@@ -82,6 +82,7 @@ public class C25_PostRequestObjectMapper_Pojo extends JsonPlaceHolderBaseUrl {
         assertEquals(actualData.getCompleted(), expectedData.getCompleted());
 
 
+
         //2.yol
         Map<String,String> actualData1 = response.as(Map.class);
         assertEquals(response.statusCode(), 201);

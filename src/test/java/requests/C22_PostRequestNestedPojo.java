@@ -60,6 +60,7 @@ public class C22_PostRequestNestedPojo extends BookerBaseUrl {
         Response response = given(spec).body(expectedData).post("{first}");
         response.prettyPrint();
 
+
        //Do assertion
         BookingResponsePojo actualData = response.as(BookingResponsePojo.class); // De-serialization islemi parametresiz constructor ile yapilir. cünkü actualData parametresizdir
         System.out.println("actualData = " + actualData);

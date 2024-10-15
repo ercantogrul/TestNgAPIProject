@@ -16,4 +16,5 @@ public class GoRestBaseUrl {
                 .setBaseUri("https://gorest.co.in/public/v1")
                 .build();
     }
+
 }
